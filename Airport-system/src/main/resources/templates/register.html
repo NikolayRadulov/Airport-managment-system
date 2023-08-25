@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/styles/registerPageStyles.css}">
+</head>
+<body>
+    <section>
+        <article> 
+            <h1>Register</h1>
+            <form th:action="@{/registered}" th:method = "POST">
+                <div>
+                    <input type="email" placeholder="youremail@domain.com" name = "email">
+                    <label for="email">Email</label>
+                </div>
+                <div>
+                    <input type="text" placeholder="Ivan Ivanov" name = "username">
+                    <label for="username">Username</label> 
+                </div>
+                <div>
+                    <input type="password" placeholder="**********" name = "password"> 
+                    <label for="password">Password</label> 
+                </div>
+                <div>
+                    <input type="password" placeholder="**********" name = "confirmPassword"> 
+                    <label for="password">Confirm password</label> 
+                </div>
+                    <div class="remember-me">
+                    <input type="checkbox" id = "checkbox" name="toRemember"><span>Remember me</span>  
+                </div>
+                
+                <button type="submit">Register</button>
+            </form>
+        </article>
+    </section>
+</body>
+</html>

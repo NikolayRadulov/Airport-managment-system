@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns = "https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link th:href = "@{/styles/mainPageStyles.css}" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div>
+                <a th:href="@{/}">Arriving</a>
+                <a th:href="@{/}">Departing</a>
+                <a th:href="@{/}">Destinations</a>
+            </div>
+            <div>
+                <a th:href="@{/login}">Login</a>
+                <a th:href="@{/register}">Register</a>
+            </div>
+        </nav>       
+    </header>
+    <section class="content-container">
+        <div class = "btns">
+            <button><a th:href="@{/}">Add flight</a></button>
+            <button><a th:href="@{/}">See all flights</a></button>
+            <button><a th:href="@{/}">See saved flights</a></button>
+        </div>
+    </section>
+</body>
+</html>

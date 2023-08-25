@@ -1,0 +1,52 @@
+html body {
+    margin: 0px;
+    overflow: hidden;
+}
+
+header nav {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav div a {
+    margin: 10px;
+    text-decoration: none;
+    color: black;
+    
+}
+
+header nav div a:hover {
+    color: blue;
+}  
+
+.content-container {
+    width: 100vw;
+    height: 700px;
+    background-image:  linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.1)), url("images/pexels-pascal-borener-1089306.jpg");
+    background-position: center;
+}
+
+.content-container .btns {
+    position: relative; 
+    left: 27%;
+    top: 32%;  
+}
+
+.content-container .btns button {
+    background: transparent;
+    padding: 25px;
+    font-size: 26px;
+    margin: 14px;
+    color: white;
+}
+
+.content-container .btns button a {
+    text-decoration: none;
+    font-size: 26px;
+    color: white;
+}
+
+.content-container .btns button:hover {
+    cursor: pointer;
+}
