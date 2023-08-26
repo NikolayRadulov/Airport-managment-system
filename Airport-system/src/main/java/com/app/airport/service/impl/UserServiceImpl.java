@@ -3,6 +3,7 @@ package com.app.airport.service.impl;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import com.app.airport.model.dto.UserLoginDto;
 import com.app.airport.model.dto.UserRegisterDto;
 import com.app.airport.model.entity.User;
 import com.app.airport.repository.UserRepository;
@@ -23,9 +24,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void loginUser(User user) {
-		// TODO Auto-generated method stub
-
+	public void loginUser(UserLoginDto userDto) {
+		User user = userRepository.findByUsername(userDto.getUsername());
+		if(user == null || !user.getPassword().equals(userDto.getPassword()) || !user.getEmail().equals(userDto.getEmail())) {
+			throw new IllegalArgumentException("Invalid credentials");
+		}
+		
+		user.setLoggedIn(true);
+		userRepository.save(user);
 	}
 
 	@Override
@@ -36,15 +42,19 @@ public class UserServiceImpl implements UserService {
 		if(!validationUtil.isValid(userDto) || userDto.getUsername().equals("admin")) throw new IllegalArgumentException();
 		
 		User user = modelMapper.map(userDto, User.class);
-		
+		user.setLoggedIn(true);
 		userRepository.save(user);
-		System.out.println("User successfully registered");
 	}
 
 	@Override
 	public void logoutUser(User user) {
-		// TODO Auto-generated method stub
+		user.setLoggedIn(false);
+		userRepository.save(user);
+	}
 
+	@Override
+	public User findUser(String username) {
+		return userRepository.findByUsername(username);
 	}
 
 }

@@ -15,13 +15,15 @@
                 <a th:href="@{/}">Destinations</a>
             </div>
             <div>
-                <a th:href="@{/login}">Login</a>
-                <a th:href="@{/register}">Register</a>
+                <a th:href="@{/logout}" th:if = "${isUserLoggedIn}">Logout</a>
+                <a th:href="@{/login}" th:unless = "${isUserLoggedIn}">Login</a>
+                <a th:href="@{/register}" th:unless = "${isUserLoggedIn}">Register</a>
             </div>
         </nav>       
     </header>
     <section class="content-container">
-        <div class = "btns">
+        <h1 th:unless = "${isUserLoggedIn}">Log in to see your flights</h1>
+        <div class = "btns" th:if = "${isUserLoggedIn}">
             <button><a th:href="@{/}">Add flight</a></button>
             <button><a th:href="@{/}">See all flights</a></button>
             <button><a th:href="@{/}">See saved flights</a></button>

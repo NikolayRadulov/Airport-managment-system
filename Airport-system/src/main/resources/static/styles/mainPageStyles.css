@@ -34,7 +34,7 @@ header nav div a:hover {
 }
 
 .content-container .btns button {
-    background: transparent;
+    background: black;
     padding: 25px;
     font-size: 26px;
     margin: 14px;
@@ -44,6 +44,14 @@ header nav div a:hover {
 .content-container .btns button a {
     text-decoration: none;
     font-size: 26px;
+    color: white;
+}
+
+.content-container h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
     color: white;
 }
 

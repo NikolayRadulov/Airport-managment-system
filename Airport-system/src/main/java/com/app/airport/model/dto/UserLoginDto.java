@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-public class UserRegisterDto {
+public class UserLoginDto {
 
 	@NotBlank
 	@Size(min = 4, max = 25, message = "Username must be between 4 and 25 symbols long!")
@@ -17,54 +17,52 @@ public class UserRegisterDto {
 	private String password;
 	
 	@NotBlank
-	private String confirmPassword;
-	
-	@NotBlank
 	@Email(message = "Invalid email")
 	private String email;
 	
 	@NotNull
 	private boolean toRemember;
 	
-	public UserRegisterDto() {
+	
+	public UserLoginDto() {
 		// TODO Auto-generated constructor stub
 	}
+
 
 	public String getUsername() {
 		return username;
 	}
 
+
 	public void setUsername(String username) {
 		this.username = username;
 	}
+
 
 	public String getPassword() {
 		return password;
 	}
 
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
 
 	public String getEmail() {
 		return email;
 	}
 
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
 
 	public boolean isToRemember() {
 		return toRemember;
 	}
+
 
 	public void setToRemember(boolean toRemember) {
 		this.toRemember = toRemember;
