@@ -20,9 +20,14 @@ article {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-    height: 57vh;
+    height: 59vh;
     padding: 20px;
     background-color: white;
+}
+
+h3 {
+    color: red;
+    margin: 10px 0px;
 }
 
 article form {

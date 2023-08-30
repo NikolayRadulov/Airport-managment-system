@@ -20,15 +20,24 @@ article {
     border-radius: 25px;
     display: flex;
     flex-direction: column;
-    height: 65vh;
+    height: 72vh;
     padding: 20px;
     background-color: white;
+}
+
+.invalid-input {
+    border: 1px solid red;
 }
 
 article form {
     display: flex;
     flex-direction: column;
     
+}
+
+small {
+    margin: 5px;
+    color: red;
 }
 
 article h1 {

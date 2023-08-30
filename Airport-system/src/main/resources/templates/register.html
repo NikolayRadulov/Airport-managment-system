@@ -10,29 +10,35 @@
     <section>
         <article> 
             <h1>Register</h1>
-            <form th:action="@{/registered}" th:method = "POST">
-                <div>
-                    <input type="email" placeholder="youremail@domain.com" name = "email" required>
-                    <label for="email">Email</label>
-                </div>
-                <div>
-                    <input type="text" placeholder="Ivan Ivanov" name = "username" required>
-                    <label for="username">Username</label> 
-                </div>
-                <div>
-                    <input type="password" placeholder="**********" name = "password" required> 
-                    <label for="password">Password</label> 
-                </div>
-                <div>
-                    <input type="password" placeholder="**********" name = "confirmPassword" required> 
-                    <label for="password">Confirm password</label> 
-                </div>
-                    <div class="remember-me">
-                    <input type="checkbox" id = "checkbox" name="toRemember"><span>Remember me</span>  
-                </div>
-                
-                <button type="submit">Register</button>
-            </form>
+                <form th:action="@{/registered}" th:method = "POST">
+                    <div th:object = "${userRegisterDto}">  
+                        <div>
+                            <input th:field = "*{username}" type="text" placeholder="Ivan Ivanov" th:errorclass="invalid-input" name = "username" required>
+                            <small th:if = "${#fields.hasErrors('username')}">Invalid username</small>
+                            <label for="username" th:unless = "${#fields.hasErrors('username')}">Username</label>
+                        </div>
+                        <div>
+                            <input type="password" placeholder="**********" name = "password" th:errorclass="invalid-input" required>
+                            <small th:if = "${#fields.hasErrors('password')}" >Invalid password</small> 
+                            <label for="password" th:unless = "${#fields.hasErrors('username')}">Password</label> 
+                        </div>
+                        <div>
+                            <input type="password" placeholder="**********" name = "confirmPassword" th:errorclass="invalid-input" required> 
+                            <small th:if = "${#fields.hasErrors('password')}">Invalid confirm password</small>
+                            <label for="confirmPassword" th:unless = "${#fields.hasErrors('username')}">Confirm password</label> 
+                        </div>
+                        <div>
+                            <input type="email" placeholder="youremail@domain.com" th:errorclass = "invalid-input" name = "email" required>
+                            <small th:if="${#fields.hasErrors('email')}">Invalid email</small>
+                            <label for="email" th:unless = "${#fields.hasErrors('email')}">Email</label>
+                        </div>
+                        <div class="remember-me">
+                            <input type="checkbox" id = "checkbox" name="toRemember"><span>Remember me</span>  
+                        </div>
+                        
+                        <button type="submit">Register</button>
+                    </div>
+                </form>
         </article>
     </section>
 </body>

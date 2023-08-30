@@ -8,19 +8,16 @@ import com.app.airport.model.dto.UserRegisterDto;
 import com.app.airport.model.entity.User;
 import com.app.airport.repository.UserRepository;
 import com.app.airport.service.UserService;
-import com.app.airport.util.ValidationUtil;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	private final UserRepository userRepository;
 	private final ModelMapper modelMapper;
-	private final ValidationUtil validationUtil;
 	
-	public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, ValidationUtil validationUtil) {
+	public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper) {
 		this.userRepository = userRepository;
 		this.modelMapper = modelMapper;
-		this.validationUtil = validationUtil;
 	}
 
 	@Override
@@ -36,11 +33,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void registerUser(UserRegisterDto userDto) {
-		if(!userDto.getPassword().equals(userDto.getConfirmPassword())) {
-			throw new IllegalArgumentException("Passwords must match!");
-		}
-		if(!validationUtil.isValid(userDto) || userDto.getUsername().equals("admin")) throw new IllegalArgumentException();
-		
 		User user = modelMapper.map(userDto, User.class);
 		user.setLoggedIn(true);
 		userRepository.save(user);
