@@ -1,5 +1,7 @@
 package com.app.airport.web;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,8 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.app.airport.model.dto.TicketSearchDto;
 import com.app.airport.model.dto.UserLoginDto;
 import com.app.airport.model.dto.UserRegisterDto;
+import com.app.airport.model.entity.Ticket;
 import com.app.airport.service.TicketService;
 import com.app.airport.service.UserService;
 
@@ -65,6 +69,24 @@ public class MainController {
 		}
 		
 		return "redirect:/";
+	}
+	
+	@GetMapping("/addTicket")
+	public String addTicket(HttpSession session) {
+		if(session.getAttribute("username") == null) return "redirect:/";
+		
+		
+		return "addTicket.html";
+	}
+	
+	@PostMapping("/addTicket")
+	public String addTicket(Model model, TicketSearchDto ticketSearchDto, HttpSession session) {
+		if(session.getAttribute("username") == null) return "redirect:/";
+				
+		List<Ticket> tickets = ticketService.searchForTickets(ticketSearchDto);
+		model.addAttribute("tickets", tickets);
+		
+		return "addTicket.html";
 	}
 	
 	@PostMapping("/registered")

@@ -6,6 +6,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import com.app.airport.model.dto.TicketDto;
+import com.app.airport.model.dto.TicketSearchDto;
 import com.app.airport.model.entity.Ticket;
 import com.app.airport.repository.TicketRepository;
 import com.app.airport.service.TicketService;
@@ -25,8 +26,12 @@ public class TicketServiceImpl implements TicketService {
 	}
 
 	@Override
-	public List<Ticket> searchForTickets(String source, String destination) {
-		return ticketRepository.findBySourceCountryAndDestinationCountry(source, destination);
+	public List<Ticket> searchForTickets(TicketSearchDto ticketSearchDto) {
+		
+		return ticketRepository.findFilteredTickets(ticketSearchDto.getSourceCountry(), 
+													ticketSearchDto.getDestinationCountry(), 
+													ticketSearchDto.getMinPrice().doubleValue(),
+													ticketSearchDto.getMaxPrice().doubleValue());
 	}
 
 	@Override

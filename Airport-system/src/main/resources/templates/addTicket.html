@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save ticket</title>
+    <link rel="stylesheet" th:href="@{/styles/addTicketPageStyles.css}">
+</head>
+<body>
+    <section id = "filter-container">
+        <h1>Search tickets</h1>
+        <form th:action="@{/addTicket}" th:method = "POST">
+            <input type="text" placeholder="Sorce country" name="sourceCountry" required>
+            <input type="text" placeholder="Destination country" name = "destinationCountry" required>
+            <input type="number" name = "minPrice" placeholder="Minimum price" required>
+            <input type="number" name = "maxPrice" placeholder="Maximum price" required>
+
+            <button type="submit">Search tickets</button>
+        </form>
+    </section>
+    <section id = "main-container">
+        <table>
+            <tr>
+                <th>Source country</th>
+                <th>Destination country</th>
+                <th>Price</th>
+                <th>Departing</th>
+                <th>Arriving</th>
+            </tr>
+            <tr th:each = "t : ${tickets}">
+                <td th:text = "${t.sourceCountry}"></td>
+                <td th:text = "${t.destinationCountry}"></td>
+                <td th:text = "${t.price}"></td>
+                <td th:text = "${t.departmentTime}"></td>
+                <td th:text = "${t.arrivalTime}"></td>
+
+                <button th:href = "@{/saveTicket}" th:text = "Save"></button>
+            </tr>
+        </table>
+    </section>
+</body>
+</html>

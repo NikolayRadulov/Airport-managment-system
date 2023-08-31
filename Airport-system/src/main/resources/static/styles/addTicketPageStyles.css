@@ -1,0 +1,48 @@
+html body {
+    overflow-x: hidden;
+    background-image: url("images/pexels-pascal-borener-1089306.jpg");
+    background-position: center;
+}
+
+#filter-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 80vw;
+    background-color: white;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+h1{
+   margin: 10px auto;
+}
+
+#filter-container form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: 0px;
+    padding: 0px;
+}
+#filter-container form input{
+    margin: 5px;
+}
+#filter-container form button{
+    background-color: black;
+    color: white;
+    margin: 8px 2px;
+}
+#main-container {
+    height: fit-content;
+    width: 60vw;
+    position: relative;
+    top: -175px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+th, td {
+    width: 200px;
+    text-align: center;
+}
