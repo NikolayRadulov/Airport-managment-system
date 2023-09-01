@@ -1,3 +1,3 @@
 # Airport-managment-system
-A mini website project with thymeleaf.
+A mini website project with spring and thymeleaf.
 Under construction.
