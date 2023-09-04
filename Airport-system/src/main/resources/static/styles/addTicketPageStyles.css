@@ -46,3 +46,15 @@ th, td {
     width: 200px;
     text-align: center;
 }
+
+td button {
+    padding: 6px 24px;
+    background-color: black;
+    margin: 2px;
+}
+
+td button a {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+}

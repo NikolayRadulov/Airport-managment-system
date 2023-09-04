@@ -33,10 +33,12 @@
                 <td th:text = "${t.price}"></td>
                 <td th:text = "${t.departmentTime}"></td>
                 <td th:text = "${t.arrivalTime}"></td>
-
-                <button th:href = "@{/saveTicket}" th:text = "Save"></button>
+                <td>
+                    <button><a th:href="@{/saveTicket}">Save</a></button>
+                </td>
             </tr>
         </table>
+
     </section>
 </body>
 </html>
