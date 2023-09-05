@@ -11,4 +11,6 @@ public interface TicketService {
 	List<Ticket> searchForTickets(TicketSearchDto ticketSearchDto);
 	
 	void addTicket(TicketDto ticket);
+	
+	List<Ticket> getAllTickets();
 }

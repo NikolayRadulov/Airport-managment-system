@@ -2,10 +2,11 @@ package com.app.airport.model.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,8 +28,8 @@ public class Ticket extends BaseEntity {
 	@Column(nullable = false, name = "arrival_time")
 	private LocalDateTime arrivalTime;
 	
-	@ManyToOne
-	private User user;
+	@ManyToMany(mappedBy = "tickets")
+	private List<User> users;
 	
 	public Ticket(String sourceCounty, String destinationCounty, BigDecimal price, LocalDateTime departmentTime,
 			LocalDateTime arrivalTime) {
@@ -83,12 +84,14 @@ public class Ticket extends BaseEntity {
 		this.arrivalTime = arrivalTime;
 	}
 
-	public User getUser() {
-		return user;
+	public List<User> getUsers() {
+		return users;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
+
+	
 
 }

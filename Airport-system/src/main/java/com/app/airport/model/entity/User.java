@@ -1,10 +1,10 @@
 package com.app.airport.model.entity;
 
-import java.util.Set;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -20,8 +20,8 @@ public class User extends BaseEntity {
 	@Column(nullable = false, unique = true)
 	private String email;
 	
-	@OneToMany(mappedBy = "user")
-	private Set<Ticket> tickets;
+	@ManyToMany
+	private List<Ticket> tickets;
 	
 	@Column(nullable = false, name = "is_administrator")
 	private boolean isAdministrator;
@@ -65,11 +65,11 @@ public class User extends BaseEntity {
 		this.email = email;
 	}
 
-	public Set<Ticket> getTickets() {
+	public List<Ticket> getTickets() {
 		return tickets;
 	}
 
-	public void setTickets(Set<Ticket> tickets) {
+	public void setTickets(List<Ticket> tickets) {
 		this.tickets = tickets;
 	}
 

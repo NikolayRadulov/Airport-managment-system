@@ -18,7 +18,7 @@
             <button type="submit">Search tickets</button>
         </form>
     </section>
-    <section id = "main-container">
+    <section id = "main-container" th:fragment = "tickets-table-container">
         <table>
             <tr>
                 <th>Source country</th>
@@ -27,14 +27,14 @@
                 <th>Departing</th>
                 <th>Arriving</th>
             </tr>
-            <tr th:each = "t : ${tickets}">
-                <td th:text = "${t.sourceCountry}"></td>
-                <td th:text = "${t.destinationCountry}"></td>
-                <td th:text = "${t.price}"></td>
+            <tr th:each = "t, iterator : ${tickets}">
+                <td th:text = "${t.sourceCountry}" name = "source"></td>
+                <td th:text = "${t.destinationCountry}" name = "destination"></td>
+                <td th:text = "${t.price}" name = "price"></td>
                 <td th:text = "${t.departmentTime}"></td>
                 <td th:text = "${t.arrivalTime}"></td>
-                <td>
-                    <button><a th:href="@{/saveTicket}">Save</a></button>
+                <td class = "save-btn">
+                    <button><a th:href="@{/saveTicket/{id}(id=${iterator.index+1})}">Save</a></button>
                 </td>
             </tr>
         </table>

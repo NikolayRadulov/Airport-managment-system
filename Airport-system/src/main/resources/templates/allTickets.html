@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All tickets</title>
+    <link rel="stylesheet" th:href="@{/styles/allTicketsStyles.css}">
+</head>
+<body>
+    <section th:replace = "addTicket.html :: tickets-table-container"></section>
+    <button class="home-btn"><a th:href="@{/}">Home</a></button>
+</body>
+</html>

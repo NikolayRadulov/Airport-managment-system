@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.airport.model.dto.UserLoginDto;
 import com.app.airport.model.dto.UserRegisterDto;
+import com.app.airport.model.entity.Ticket;
 import com.app.airport.model.entity.User;
 import com.app.airport.repository.UserRepository;
 import com.app.airport.service.UserService;
@@ -47,6 +48,13 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User findUser(String username) {
 		return userRepository.findByUsername(username);
+	}
+
+	@Override
+	public void saveTicket(String username, Ticket ticket) {
+		User user = userRepository.findByUsername(username);
+		user.getTickets().add(ticket);
+		userRepository.save(user);
 	}
 
 }

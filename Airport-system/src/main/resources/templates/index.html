@@ -25,8 +25,8 @@
         <h1 th:unless = "${isUserLoggedIn}">Log in to see your flights</h1>
         <div class = "btns" th:if = "${isUserLoggedIn}">
             <button><a th:href="@{/addTicket}">Save flight</a></button>
-            <button><a th:href="@{/}">See all flights</a></button>
-            <button><a th:href="@{/}">See saved flights</a></button>
+            <button><a th:href="@{/seeAllTickets}">See all flights</a></button>
+            <button><a th:href="@{/seeSavedTickets}">See saved flights</a></button>
         </div>
     </section>
 </body>

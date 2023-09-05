@@ -43,4 +43,9 @@ public class TicketServiceImpl implements TicketService {
 		ticketRepository.save(ticket);
 	}
 
+	@Override
+	public List<Ticket> getAllTickets() {
+		return ticketRepository.findAll();
+	}
+
 }
