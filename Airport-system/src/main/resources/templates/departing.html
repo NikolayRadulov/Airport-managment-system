@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departing planes</title>
+    <link rel="stylesheet" th:href="@{/styles/arrivingAndDepartingPagesStyles.css}">
+</head>
+<body>
+    <section id = "filter-container">
+        <form th:action="@{/getDepartingPlanes}" th:method = "POST">
+            <div th:replace = "arriving.html :: form-container"></div>
+        </form>
+    </section>
+    <section th:replace = "addTicket.html :: tickets-table-container"></section>
+    <button class="home-btn"><a th:href="@{/}">Home</a></button>
+
+</body>
+</html>

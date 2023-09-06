@@ -1,0 +1,35 @@
+html body {
+    overflow-x: hidden;
+    background-image: url("images/pexels-pascal-borener-1089306.jpg");
+    background-position: center;
+}
+
+section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 0 auto;
+    width: fit-content;
+    text-align: center;
+}
+ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul li {
+    margin: 4px;
+}
+
+.home-btn {
+    padding: 8px 28px;
+    background-color: black;
+}
+
+.home-btn a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}

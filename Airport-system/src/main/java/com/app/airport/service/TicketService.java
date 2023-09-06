@@ -1,5 +1,6 @@
 package com.app.airport.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.app.airport.model.dto.TicketDto;
@@ -13,4 +14,9 @@ public interface TicketService {
 	void addTicket(TicketDto ticket);
 	
 	List<Ticket> getAllTickets();
+	
+	List<Ticket> getTicketsByArrivalDate(LocalDate arrival);
+	
+	List<Ticket> getTicketsByDepartmentDate(LocalDate department);
+
 }

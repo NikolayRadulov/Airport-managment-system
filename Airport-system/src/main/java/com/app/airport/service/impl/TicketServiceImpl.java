@@ -1,5 +1,6 @@
 package com.app.airport.service.impl;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -46,6 +47,18 @@ public class TicketServiceImpl implements TicketService {
 	@Override
 	public List<Ticket> getAllTickets() {
 		return ticketRepository.findAll();
+	}
+
+	@Override
+	public List<Ticket> getTicketsByArrivalDate(LocalDate arrival) {
+		// TODO Auto-generated method stub
+		return ticketRepository.findByArrivalTime(arrival);
+	}
+
+	@Override
+	public List<Ticket> getTicketsByDepartmentDate(LocalDate department) {
+		// TODO Auto-generated method stub
+		return ticketRepository.findByDepartmentTime(department);
 	}
 
 }

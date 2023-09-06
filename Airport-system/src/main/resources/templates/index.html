@@ -10,9 +10,9 @@
     <header>
         <nav>
             <div>
-                <a th:href="@{/}">Arriving</a>
-                <a th:href="@{/}">Departing</a>
-                <a th:href="@{/}">Destinations</a>
+                <a th:href="@{/getArrivingPlanes}">Arriving</a>
+                <a th:href="@{/getDepartingPlanes}">Departing</a>
+                <a th:href="@{/getDestinations}">Destinations</a>
             </div>
             <div>
                 <a th:href="@{/logout}" th:if = "${isUserLoggedIn}">Logout</a>
